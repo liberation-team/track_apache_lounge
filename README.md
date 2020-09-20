@@ -5,9 +5,13 @@ The python script can help you to get the Slack notification when the new Apache
 
 Run the script periodically using cron each 1-2 hours and when the new announcement appears on the changelog web-page, the script will send the notification to the Slack, using webhook URL.
 
-To test script, export the environment variable `SLACK_WEBHOOK_URL` and run it in the console:
+To test script, create isolated Python environment using virtualenv, export the environment variable `SLACK_WEBHOOK_URL` and run it in the console:
 
 ```sh
+git clone git@github.com:liberation-team/track_apache_lounge.git && cd track_apache_lounge
+virtualenv -p python3 venv
+source ./venv/bin/activate
+pip install -r requirements.txt
 export SLACK_WEBHOOK_URL='https://hooks.slack.com/services/XXXX/YYYY/zzzzz'
 ./apache_track.py
 ```
